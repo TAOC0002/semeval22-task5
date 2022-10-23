@@ -11,7 +11,7 @@ Download the dataset from [data.zip](https://drive.google.com/file/d/13bK7dlWv59
 
 ### Prerequisite
 
-Create two virtual environments named `baseline` and `mmf` with `conda create`. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively) with Pip. For example, in the `mmf` environment:
+Create two virtual environments named `baseline` and `mmf` with `conda create`. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively) with pip. For example, in the `mmf` environment:
 
 ```bash
 pip install -r mmf_requirements.txt
@@ -24,7 +24,7 @@ git clone https://gitlab.com/vedanuj/vqa-maskrcnn-benchmark
 ```
 2. Go to the `vqa-maskrcnn-benchmark` folder and run the following commands in order
 ```bash
-!rm -rf build
+rm -rf build
 ```
 ```bash
 nvcc -V

@@ -11,10 +11,12 @@ Download the dataset from [data.zip](https://drive.google.com/file/d/13bK7dlWv59
 
 ### Prerequisite
 
-Create two virtual environments named `baseline` and `mmf` with `conda create`. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively) with pip. For example, in the `mmf` environment:
+1. Create two virtual environments named `baseline` and `mmf` with `conda create`.
+2. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively).
+The two steps can be jointly achieved in one command. For example, for the `mmf` environment:
 
 ```bash
-pip install -r mmf_requirements.txt
+conda create --name mmf --file mmf_requirements.txt
 ```
 
 ### Setup for feature extraction

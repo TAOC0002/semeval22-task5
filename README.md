@@ -36,8 +36,8 @@ python setup.py build develop
 ```
 
 ## Reproducibility
-Please refer to the following .ipynb notebooks (in sequence) for reproduce results.
-1. data_augmentation.ipynb
+Please refer to the following .ipynb notebooks (in sequence) to reproduce the results. Unless otherwise stated, all cells should be run in the `mmf` kernel except for the __Data Augmentation__ section in `data_augmentation.ipynb`, which should be run in the `baseline` kernel.
+1. data_augmentation.ipynb: note that the images in data.zip are already augmented. You may start from the __Feature Extraction__ section if you wish.
 2. ensemble_preparation.ipynb
 3. ensemble_learning.ipynb
 

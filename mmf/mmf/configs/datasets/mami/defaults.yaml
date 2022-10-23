@@ -1,0 +1,66 @@
+dataset_config:
+  mami:
+    data_dir: /home/taochen/mmf/data/datasets
+    depth_first: false
+    fast_read: false
+    use_images: true
+    use_features: false
+    images:
+      train:
+      - mami/defaults/images/
+      val:
+      - mami/defaults/images/
+      test:
+      - mami/defaults/images/
+    features:
+      train:
+      - mami/defaults/features/
+      val:
+      - mami/defaults/features/
+      test:
+      - mami/defaults/features/
+    annotations:
+      train:
+      - mami/defaults/annotations/train1.jsonl
+      val:
+      - mami/defaults/annotations/val1.jsonl
+      test:
+      - mami/defaults/annotations/test1.jsonl
+    max_features: 100
+    processors:
+      text_processor:
+        type: vocab
+        params:
+          max_length: 14
+          vocab:
+            type: intersected
+            embedding_name: glove.6B.300d
+            vocab_file: hateful_memes/defaults/extras/vocabs/vocabulary_100k.txt
+          preprocessor:
+            type: simple_sentence
+            params: {}
+      bbox_processor:
+        type: bbox
+        params:
+          max_length: 50
+      image_processor:
+        type: torchvision_transforms
+        params:
+          transforms:
+            - type: Resize
+              params:
+                size: [256, 256]
+            - type: CenterCrop
+              params:
+                size: [224, 224]
+            - ToTensor
+            - GrayScaleTo3Channels
+            - type: Normalize
+              params:
+                mean: [0.46777044, 0.44531429, 0.40661017]
+                std: [0.12221994, 0.12145835, 0.14380469]
+    return_features_info: false
+
+
+evaluation:
+  predict_file_format: csv

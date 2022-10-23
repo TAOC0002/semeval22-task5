@@ -1,0 +1,64 @@
+dataset_config:
+  violence:
+    data_dir: /home/taochen/mmf/data/datasets
+    depth_first: false
+    fast_read: false
+    use_images: true
+    use_features: false
+    images:
+      train:
+      - mami/defaults/images/
+      val:
+      - mami/defaults/images/
+      test:
+      - mami/defaults/images/
+    features:
+      train:
+      - mami/defaults/features/
+      val:
+      - mami/defaults/features/
+      test:
+      - mami/defaults/features/
+    annotations:
+      train:
+      - violence/defaults/annotations/train_violence.jsonl
+      val:
+      - violence/defaults/annotations/val_violence.jsonl
+      test:
+      - violence/defaults/annotations/test_violence.jsonl
+    max_features: 100
+    processors:
+      text_processor:
+        type: bert_tokenizer
+        params:
+          tokenizer_config:
+            type: bert-base-uncased
+            params:
+              do_lower_case: true
+          mask_probability: 0
+          max_seq_length: 128
+      bbox_processor:
+        type: bbox
+        params:
+          max_length: 50
+      image_processor:
+        type: torchvision_transforms
+        params:
+          transforms:
+            - type: Resize
+              params:
+                size: [256, 256]
+            - type: CenterCrop
+              params:
+                size: [224, 224]
+            - ToTensor
+            - GrayScaleTo3Channels
+            - type: Normalize
+              params:
+                mean: [0.46777044, 0.44531429, 0.40661017]
+                std: [0.12221994, 0.12145835, 0.14380469]
+    return_features_info: false
+
+
+evaluation:
+  predict_file_format: csv

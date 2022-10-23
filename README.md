@@ -12,7 +12,7 @@ Download the dataset from [data.zip](https://drive.google.com/file/d/13bK7dlWv59
 ### Prerequisite
 
 1. Create two virtual environments named `baseline` and `mmf` with `conda create`.
-2. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively).
+2. Install their corresponding package requirements (`baseline_requirements.txt` and `mmf_requirements.txt`, respectively).\
 The two steps can be jointly achieved in one command. For example, for the `mmf` environment:
 
 ```bash
